@@ -30,7 +30,7 @@ const uploadFile = multer({
 router.post('/upload', uploadFile.single("file"), upload);
 router.get('/list', protect, getFiles);
 router.get('/:id', protect, getFile);
-router.delete('/delete/:id', deleteFile);
-router.get('/download/:id', download);
-router.put('/update/:id', uploadFile.single("file"), edit)
+router.delete('/delete/:id', protect, deleteFile);
+router.get('/download/:id', protect, download);
+router.put('/update/:id', protect, uploadFile.single("file"), edit)
 module.exports = router;
