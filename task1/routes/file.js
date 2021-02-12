@@ -27,7 +27,7 @@ const uploadFile = multer({
     storage: storage
 });
 
-router.post('/upload', uploadFile.single("file"), upload);
+router.post('/upload', protect, uploadFile.single("file"), upload);
 router.get('/list', protect, getFiles);
 router.get('/:id', protect, getFile);
 router.delete('/delete/:id', protect, deleteFile);
